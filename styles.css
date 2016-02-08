@@ -12,13 +12,6 @@ h1 {
   line-height: 26.4px;
 }
 
-h2 {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  line-height: 15.4px;
-}
- 
 p {
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 14px;
@@ -58,7 +51,7 @@ a:active {
   padding: 0.5em;
   border-radius: 0.5em;
   border: 1px solid black;
-  z-index: 1;
+  z-index: 2;
 }
 
 #topLabel {
@@ -79,8 +72,14 @@ a:active {
   height: 10px;
   border-radius: 0.5em;
   background-color: #ebc483;
+  cursor: pointer;
 }
 
 #runnerDetails {
   display: none;
+}
+
+#highlighted {
+  background-color: #92982e;
+  z-index: 1;
 }

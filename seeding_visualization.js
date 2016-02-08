@@ -43,7 +43,6 @@ function getRaceResults() {
  
   var sortedStartTimes = startTimes.slice();
   sortedStartTimes.sort(function(a, b) { return a-b; });
-  console.log(sortedStartTimes);
   results.forEach(function(result, index) {
     result.startOrder = sortedStartTimes.indexOf(startTimes[index]) + 1;
   });
@@ -70,6 +69,7 @@ function drawResults() {
     graph.appendChild(resultDiv);
 
     var runnerDetailsP = document.querySelector("#runnerDetails");
+    var raceDetailsP = document.querySelector("#raceDetails");
     var nameSpan = document.querySelector("#name");
     var citySpan = document.querySelector("#city");
     var gunTimeSpan = document.querySelector("#gunTime");
@@ -77,21 +77,28 @@ function drawResults() {
     var rankSpan = document.querySelector("#rank");
     var startOrderSpan = document.querySelector("#startOrder");
 
-    resultDiv.addEventListener("mouseenter", function(event) {
-      event.target.style.backgroundColor = "#92982E";
+    function highlightResult(event) {
+      if (document.querySelector("#highlighted")) {
+        document.querySelector("#highlighted").id = "";
+      }
+      event.target.id = "highlighted";
       runnerDetailsP.style.display = "block";
+      raceDetailsP.style.display = "none";
       nameSpan.textContent = result.name;
-      citySpan.textContent = result.city;
       gunTimeSpan.textContent = result.gunTime;
       chipTimeSpan.textContent = result.chipTime;
       rankSpan.textContent = result.rank;
       startOrderSpan.textContent = result.startOrder;
+    }
+
+    resultDiv.addEventListener("mouseenter", function(event) {
+      highlightResult(event);
+    });
+ 
+    resultDiv.addEventListener("click", function(event) {
+      highlightResult(event);
     });
 
-    resultDiv.addEventListener("mouseleave", function(event) {
-      event.target.style.backgroundColor = "#ebc483";
-      runnerDetailsP.style.display = "none";
-    });
   });
 }
 
