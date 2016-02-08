@@ -51,14 +51,26 @@ a:active {
 
 #info {
   position: fixed;
-  bottom: 0px;
-  right: 0px;
+  bottom: 10px;
+  right: 10px;
   max-width: 300px;
   background-color: rgba(78, 59, 42, 0.25);
   padding: 0.5em;
   border-radius: 0.5em;
   border: 1px solid black;
   z-index: 1;
+}
+
+#topLabel {
+  position: fixed;
+  left: 10px;
+  top: 0px;
+}
+
+#bottomLabel {
+  position: fixed;
+  left: 10px;
+  bottom: 0px;
 }
 
 .result {
